@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sinin.html">
+    
+    <style>
+             * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: white;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 25px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6c7c96;
+            font-size: 15px;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .search-icon {
+            color: #6c7c96;
+        }
+
+        .sign-in {
+            color: #6c7c96;
+            text-decoration: none;
+        }
+
+        .get-started {
+            background-color: #15171a;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            color: #0f1010;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 32px;
+            color: #6c7c96;
+        }
+
+        /* Site Design Section */
+        .site-design {
+            display: flex;
+            background-color: #15171a;
+            color: white;
+            padding: 80px 40px;
+            gap: 60px;
+            min-height: 100vh;
+        }
+
+        .site-design-left {
+            flex: 1;
+            padding-top: 40px;
+        }
+
+        .site-design-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .easy-site-design {
+            color: #37FF80;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .control-heading {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .control-heading em {
+            font-style: normal;
+            color: #6c7c96;
+        }
+
+        .description {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #6c7c96;
+            margin-bottom: 30px;
+        }
+
+        /* Design Card */
+        .design-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .design-card h3 {
+            color: #15171a;
+            margin-bottom: 20px;
+        }
+
+        .design-option {
+            margin-bottom: 20px;
+        }
+
+        .design-option label {
+            display: block;
+            color: #15171a;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .color-picker {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #37FF80;
+            border: none;
+        }
+
+        .theme-toggle {
+            display: flex;
+            background: #f5f5f5;
+            border-radius: 25px;
+            padding: 5px;
+        }
+
+        .theme-toggle button {
+            flex: 1;
+            padding: 8px 16px;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .theme-toggle button.active {
+            background: white;
+            border-radius: 20px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e1e1e1;
+            border-radius: 5px;
+            background: white;
+            color: #15171a;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .site-design {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+
+            .site-design-left, .site-design-right {
+                width: 100%;
+            }
+
+            .control-heading {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 24px;
+            }
+
+            .description {
+                font-size: 18px;
+            }
+        }
+
+             /* Previous styles remain the same */
+        /* Adding new styles for features section */
+        .features {
+            display: flex;
+            padding: 80px 40px;
+            background-color: #f5f7f9;
+            gap: 60px;
+        }
+
+        .feature-card {
+            flex: 1;
+        }
+
+        .feature-image {
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+        }
+
+        .media-grid {
+            background: #ffd700;
+            padding: 20px;
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .media-item {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1;
+        }
+
+        .newsletter-preview {
+            background: #1d1f21;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .newsletter-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-stats {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-number {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .feature-title {
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .feature-description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #6c7c96;
+        }
+
+        /* Add to existing responsive styles */
+        @media (max-width: 1024px) {
+            .features {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+        
+        
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: white;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .feature-card {
+            padding: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-title::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: #4F46E5;
+            border-radius: 6px;
+        }
+
+        .feature-description {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .integration-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 1rem;
+            justify-items: center;
+            margin-top: 3rem;
+        }
+
+        .integration-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .integration-icon:hover {
+            transform: scale(1.05);
+        }
+
+        .icon-placeholder {
+            width: 32px;
+            height: 32px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+        }
+
+       /* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #d1d1d1;
+    background-color: #fffdfd;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 80px 20px;
+    color: #d1d1d1;
+}
+
+.hero-section .subheading {
+    font-size: 0.9rem;
+    color: #a8ff00;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.hero-section h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e1e1e1;
+    margin: 0 0 10px;
+}
+
+.hero-section h2 {
+    font-size: 1.5rem;
+    color: #d1d1d1;
+    margin-bottom: 30px;
+}
+
+.hero-section .highlight {
+    color: #a8ff00;
+}
+
+.cta-button {
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #151515;
+    background-color: #a8ff00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #94e000;
+}
+
+/* Footer Section */
+.footer-section {
+    padding: 50px 20px;
+    background-color: #151515;
+    color: #d1d1d1;
+    border-top: 1px solid #333;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    flex: 1;
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.footer-logo nav {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-logo nav a {
+    color: #d1d1d1;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-logo nav a:hover {
+    text-decoration: underline;
+}
+
+.footer-links {
+    display: flex;
+    gap: 40px;
+    flex: 3;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    min-width: 150px;
+}
+
+.footer-column h3 {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #a8ff00;
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    display: block;
+    color: #d1d1d1;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+         
+    </style>
+</head>
+<body>
+    <!-- Navigation --><nav>
+        <div class="logo">
+            <svg width="45" height="45" viewBox="0 0 100 100" fill="#15171A">
+                <circle cx="50" cy="50" r="45" stroke="#15171A" stroke-width="8" fill="none"/>
+            </svg>
+            <span style="font-size: 24px; margin-left: 10px; color: #15171A;">ghost</span>
+        </div>
+        
+        <div class="nav-links">
+            <a href="https://ghost.org/creators/" style="position: relative;">Product ▾</a>
+            <a href="https://ghost.org/explore/">Explore</a>
+            <a href="https://ghost.org/marketplace/" style="position: relative;">Resources ▾</a>
+            <a href="https://ghost.org/pricing/">Pricing</a>
+        </div>
+        
+        <div class="nav-right">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <a href="sinin.html" class="sign-in">Sign in</a>
+            <a href="#" class="get-started">Get Started — free</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Independent technology</h1>
+        <p>for modern publishing.</p>
+    </div>
+
+    <!-- Site Design Section -->
+    <section class="site-design">
+        <div class="site-design-left">
+            <div class="easy-site-design">EASY SITE DESIGN</div>
+            <h2 class="control-heading">Complete control over <em>your</em> website and branding.</h2>
+            <p class="description">Launch a custom website and tweak the design settings to perfectly match your brand and style.</p>
+            <p class="description">Go even further with hundreds of custom themes in our marketplace, or build your own completely custom design from scratch.</p>
+            <p class="description">Your unique brand sits front and center, while Ghost runs things in the background.</p>
+        </div>
+        
+        <div class="site-design-right">
+            <div class="design-card">
+                <h3>Site design</h3>
+                
+                <div class="design-option">
+                    <label>Accent color</label>
+                    <div class="color-picker"></div>
+                </div>
+                
+                <div class="design-option">
+                    <label>Theme</label>
+                    <div class="theme-toggle">
+                        <button class="active">Light</button>
+                        <button>Dark</button>
+                    </div>
+                </div>
+                
+                <div class="design-option">
+                    <label>Publication logo</label>
+                    <div style="border: 2px dashed #e1e1e1; height: 100px; border-radius: 5px; display: flex; justify-content: center; align-items: center;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6c7c96" stroke-width="2">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="design-option">
+                    <label>Header</label>
+                    <select>
+                        <option>Full-width</option>
+                        <option>half-width</option>
+                        <option>semi-width</option>
+                    </select>
+                </div>
+                
+                <div class="design-option">
+                    <label>Font style</label>
+                    <select>
+                        <option>Elegant serif</option>
+                        <option>logo fonts</option>
+                        <option>music font</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Previous navigation and sections remain the same -->
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-image">
+                <div class="media-grid">
+                    <div class="media-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                        </svg>
+                    </div>
+                    <div class="media-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff7b00" stroke-width="2">
+                            <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                        </svg>
+                    </div>
+                    <div class="media-item">
+                        <span style="color: #00b4d8; font-weight: bold">GIF</span>
+                    </div>
+                    <div class="media-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff0080" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polygon points="10 8 16 12 10 16 10 8"/>
+                        </svg>
+                    </div>
+                    <div class="media-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                        </svg>
+                    </div>
+                    <div class="media-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff0080" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <h3 class="feature-title">Rich media & dynamic cards.</h3>
+            <p class="feature-description">Modern publishing requires more than just words. Expand your story with image galleries, gifs, video, audio, products, info boxes, accordion toggles, downloadable files, bookmarks, and so much more.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-image">
+                <div class="newsletter-preview">
+                    <div class="newsletter-header">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
+                        <span style="font-size: 18px">Send to subscribers of Weekly updates ▾</span>
+                    </div>
+                    <div class="newsletter-stats">
+                        <div class="stat-item">
+                            <span>Daily newsletter</span>
+                            <span class="stat-number" style="background: #0ea5e9">10,934</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>Weekly updates</span>
+                            <span class="stat-number" style="background: #22c55e">8,113</span>
+                        </div>
+                        <div class="stat-item" style="border-bottom: none;">
+                            <span>Specials</span>
+                            <span class="stat-number" style="background: #ff0080">761</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="feature-title">Newsletters built-in.</h3>
+            <p class="feature-description">Deliver posts by email newsletter to your audience, so they'll be in the loop whenever something new goes live. Segment your audience and send multiple different newsletters based on preference.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Features Section -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <h2 class="feature-title">Native analytics.</h2>
+                <p class="feature-description">
+                    Understand what's working. Detailed engagement analytics for your audience so you can understand what content is getting the most attention, and who your biggest fans are.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h2 class="feature-title">Offers & promotions.</h2>
+                <p class="feature-description">
+                    Entice new subscribers with offers and promotions to grow your business. Run a 30% discount for your first 100 subscribers, an 80%-off Black Friday sale, or a special promotion for a live event.
+                </p>
+            </div>
+        </div>
+
+        <!-- Integration Section -->
+        <div class="integration-section">
+            <p class="section-label">INTEGRATIONS</p>
+            <h1 class="section-title">Works with everything.</h1>
+            <p class="section-description">
+                Social, referral programs, push notifications, social sharing, payment gateways, A/B testing, desktop editors, mobile apps.
+            </p>
+
+            <div class="integrations">
+                
+                    <img src="http://1000logos.net/wp-content/uploads/2017/02/Instagram-app-logo.jpg"  height="150" width="150">
+                    <img src="https://static.vecteezy.com/system/resources/previews/022/101/098/large_2x/spotify-logo-transparent-free-png.png" height="150" width="150" >
+                    <img src="https://www.pngall.com/wp-content/uploads/13/Discord-Logo-PNG-Clipart.png"height="150" width="150" >
+                    <img src="http://pngimg.com/uploads/facebook_logos/facebook_logos_PNG19759.png"height="150" width="150" >
+                    <img src="http://www.pixelstalk.net/wp-content/uploads/2016/05/Youtube-logo-information-portal-high-contrast-hd-wallpapers.jpg" height="150" width="150">
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.tJ4Iirz58ZMFst_IJVfjzAHaHa&pid=Api&P=0&h=180"height="150" width="150" >
+                    
+                </div>
+
+
+                
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <p class="subheading">LAUNCH YOUR SITE</p>
+        <h1>Last week, <span class="highlight">11,343</span> brand new publications got started with Ghost.</h1>
+        <h2>Today, it's your turn.</h2>
+        <button class="cta-button">Start a free trial now &rarr;</button>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-content">
+            <div class="footer-logo">
+                
+               
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Product</h3>
+                    <a href="#">Creator platform</a>
+                    <a href="#">Theme marketplace</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Developers</h3>
+                    <a href="#">How to install Ghost</a>
+                    <a href="#">Core concepts</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <a href="#">Ghost tutorials</a>
+                    <a href="#">Resources</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Comparisons</h3>
+                    <a href="#">Ghost vs Substack</a>
+                    <a href="#">Ghost vs WordPress</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <a href="#">Help center</a>
+                    <a href="#">Community forum</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
